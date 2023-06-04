@@ -8,6 +8,7 @@ const correctAnswers = ['C', 'A', 'B', 'C', 'D'];
 
 let score = 0;
 
+
 const changeModeIcon = () => {
     if (modeIcon.classList.contains('fa-moon')) {
         modeIcon.classList.remove('fa-moon');
@@ -25,10 +26,8 @@ const toggleBetweenDarkAndLight = () => {
 }
 
 const getUserAnswers = () => {
-    const userAnswers = [];
-
-    correctAnswers.forEach((_, index) => {
-        userAnswers.push(form[`inputQuestion${index + 1}`].value);
+    const userAnswers = correctAnswers.map((answer, index) => {
+        return answer = form[`inputQuestion${index + 1}`].value;
     })
 
     return userAnswers;
