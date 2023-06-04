@@ -25,13 +25,8 @@ const toggleBetweenDarkAndLight = () => {
     html.classList.toggle('dark-mode');
 }
 
-const getUserAnswers = () => {
-    const userAnswers = correctAnswers.map((answer, index) => {
-        return answer = form[`inputQuestion${index + 1}`].value;
-    })
-
-    return userAnswers;
-}
+const getUserAnswers = () => correctAnswers.map((_, index) => 
+    form[`inputQuestion${index + 1}`].value);
 
 const calculateUserScore = userAnswers => {
     score = 0;
