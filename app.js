@@ -26,21 +26,23 @@ const toggleBetweenDarkAndLight = () => {
 }
 
 const getUserAnswers = () => {
-    const userAnswers = correctAnswers.map((userAnswer, index) => {
-        return userAnswer = form[`inputQuestion${index + 1}`].value;
+    const userAnswers = correctAnswers.map((answer, index) => {
+        return answer = form[`inputQuestion${index + 1}`].value;
     })
 
     return userAnswers;
 }
 
 const calculateUserScore = userAnswers => {
-    score = userAnswers.reduce((accumulator, userAnswer, index) => {
-        if (userAnswer === correctAnswers[index]) {
-            return accumulator += (100 / 5);
-        }
+    score = 0;
 
-        return accumulator;
-    }, 0)
+    userAnswers.forEach((userAnswer, index) => {
+        const isUserAnswerCorrect = userAnswer === correctAnswers[index];
+        
+        if (isUserAnswerCorrect) {
+            score += 100 / 5;
+        }
+    })
 }
 
 const showFinalResult = () => {
